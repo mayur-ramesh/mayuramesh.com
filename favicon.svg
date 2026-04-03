@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#07070a"/>
+  <text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle"
+        font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="22" letter-spacing="2" fill="#ffffff">M<tspan fill="#00f3ff" style="text-shadow: 0 0 6px #00f3ff">_</tspan>R</text>
+</svg>
