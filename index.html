@@ -6,7 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mayur Ramesh | Cybersecurity & Data Analytics</title>
     <meta name="description"
-        content="Resume and portfolio of Mayur Ramesh, Cybersecurity undergraduate specializing in IoT vulnerability analysis and data analytics.">
+        content="Resume and portfolio of Mayur Ramesh, Cybersecurity graduate specializing in IoT vulnerability analysis and data analytics.">
+    <meta name="theme-color" content="#07070a">
+
+    <!-- Open Graph (link previews) -->
+    <meta property="og:title" content="Mayur Ramesh | Cybersecurity & Data Analytics">
+    <meta property="og:description"
+        content="Cybersecurity graduate specializing in IoT vulnerability analysis, data analytics and F1 telemetry.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mayuramesh.com/">
+
+    <script>document.documentElement.classList.add('js');</script>
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="css/style.css">
@@ -24,13 +34,16 @@
 
 <body>
 
-    <!-- Glowing background effects -->
-    <div class="glow-bg glow-cyan"></div>
-    <div class="glow-bg glow-purple"></div>
+    <!-- Animated background layers -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="glow-bg glow-cyan" aria-hidden="true"></div>
+    <div class="glow-bg glow-purple" aria-hidden="true"></div>
 
     <nav class="navbar">
+        <div class="scroll-progress" aria-hidden="true"></div>
         <div class="nav-content">
-            <a href="#" class="logo">M<span class="neon-text">_</span>R</a>
+            <a href="#home" class="logo">M<span class="neon-text">_</span>R</a>
             <ul class="nav-links">
                 <li><a href="#home">About</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -55,71 +68,115 @@
 
     <main>
         <!-- Home / Hero Section -->
-        <section id="home" class="hero fade-in">
+        <section id="home" class="hero">
             <div class="hero-layout">
                 <div class="hero-content">
-                    <p class="greeting">Hi, I am</p>
-                    <h1 class="glitch" data-text="MAYUR RAMESH">MAYUR RAMESH</h1>
-                    <h2 class="subtitle">BACHELOR OF <span class="neon-text">CYBERSECURITY</span></h2>
-                    <p class="hero-desc">
-                        Cybersecurity undergraduate with hands-on experience in IoT vulnerability analysis, network
+                    <p class="greeting reveal"><span class="status-dot"></span> Hi, I am</p>
+                    <h1 class="glitch reveal" data-text="MAYUR RAMESH">MAYUR RAMESH</h1>
+                    <h2 class="subtitle reveal">BACHELOR OF <span class="neon-text">CYBERSECURITY</span></h2>
+                    <p class="typed-line reveal" aria-label="Security × data × design, data analytics builder, F1 telemetry nerd, hackathon winner">
+                        <span class="prompt">&gt;</span>
+                        <span class="typed" data-words="security × data × design|data analytics builder|F1 telemetry nerd|hackathon winner">security × data × design</span><span class="caret"></span>
+                    </p>
+                    <p class="hero-desc reveal">
+                        Cybersecurity graduate with hands-on experience in IoT vulnerability analysis, network
                         protocols, and data analytics. Passionate about leveraging threat intelligence and automated data
                         pipelines to build resilient security infrastructures.
                     </p>
-                    <div class="hero-actions">
-                        <a href="#projects" class="btn-primary">View Projects</a>
+                    <div class="hero-actions reveal">
+                        <a href="#projects" class="btn-primary">View Projects <i class="fa-solid fa-arrow-down"></i></a>
                         <a href="#contact" class="btn-secondary">Get In Touch</a>
+                        <div class="hero-socials">
+                            <a href="https://www.linkedin.com/in/mayur-ramesh/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://github.com/mayur-ramesh" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://www.instagram.com/purplesector.py/" target="_blank" rel="noopener" aria-label="PurpleSector.py on Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="hero-sidebar">
-                    <a href="https://www.instagram.com/purplesector.py/" target="_blank" class="purplesector-callout">
+                    <a href="https://www.instagram.com/purplesector.py/" target="_blank" rel="noopener" class="purplesector-callout reveal">
                         <span class="ps-flag"><span class="ps-dot">.</span>py</span>
-                        <span class="ps-text">Motorsport enthusiast? Check out <strong>PurpleSector.py</strong> — F1 data analytics you won't see on TV</span>
+                        <span class="ps-text">Motorsport enthusiast? Check out <strong>PurpleSector.py</strong> for F1 data analytics you won't see on TV</span>
                         <i class="fa-solid fa-arrow-right ps-arrow"></i>
                     </a>
+                </div>
 
-                    <div class="hero-socials glass-card">
-                        <p class="socials-label">Find me on</p>
-                        <a href="https://www.linkedin.com/in/mayur-ramesh/" target="_blank" class="social-row">
-                            <i class="fa-brands fa-linkedin text-cyan"></i>
-                            <span>LinkedIn</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square social-ext"></i>
-                        </a>
-                        <a href="https://github.com/mayur-ramesh" target="_blank" class="social-row">
-                            <i class="fa-brands fa-github text-cyan"></i>
-                            <span>GitHub</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square social-ext"></i>
-                        </a>
+                <div class="hero-visual reveal">
+                    <div class="portrait">
+                        <div class="portrait-ring"></div>
+                        <div class="portrait-frame">
+                            <!-- Drop a square photo at images/profile.jpg and it will appear here -->
+                            <img src="images/profile.jpg" alt="Mayur Ramesh"
+                                onerror="this.parentElement.classList.add('no-photo'); this.remove();">
+                            <span class="portrait-fallback" aria-hidden="true">M<span class="neon-text">_</span>R</span>
+                            <div class="portrait-scan"></div>
+                        </div>
+                        <span class="float-chip chip-1"><i class="fa-solid fa-trophy"></i> 1st Place AI Hackathon</span>
+                        <span class="float-chip chip-2"><i class="fa-solid fa-shield-halved"></i> IoT Security Research</span>
+                        <span class="float-chip chip-3"><i class="fa-solid fa-flag-checkered"></i> F1 Data Analytics</span>
                     </div>
                 </div>
             </div>
+
+            <div class="stats reveal-group">
+                <div class="stat reveal">
+                    <span class="stat-num" data-count="1">1</span>
+                    <span class="stat-label">Hackathon win</span>
+                </div>
+                <div class="stat reveal">
+                    <span class="stat-num" data-count="2">2</span>
+                    <span class="stat-label">Design sprint wins</span>
+                </div>
+                <div class="stat reveal">
+                    <span class="stat-num" data-count="5">5</span>
+                    <span class="stat-label">Technical projects</span>
+                </div>
+                <div class="stat reveal">
+                    <span class="stat-num" data-count="5">5</span>
+                    <span class="stat-label">Certifications</span>
+                </div>
+            </div>
+
+            <a href="#education" class="scroll-cue" aria-label="Scroll down"><span></span></a>
         </section>
 
+        <!-- Tech marquee -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Python</span><span>IoT Security</span><span>FastAPI</span><span>NIST 800-53</span><span>Pandas</span><span>FastF1</span><span>React.js</span><span>ISO 27001</span><span>Figma</span><span>Linux</span><span>Data Mining</span><span>SQL</span>
+                <span>Python</span><span>IoT Security</span><span>FastAPI</span><span>NIST 800-53</span><span>Pandas</span><span>FastF1</span><span>React.js</span><span>ISO 27001</span><span>Figma</span><span>Linux</span><span>Data Mining</span><span>SQL</span>
+            </div>
+        </div>
+
         <!-- Education Section -->
-        <section id="education" class="section fade-in">
-            <div class="section-header">
+        <section id="education" class="section">
+            <div class="section-header reveal">
                 <h2 class="section-title">01. <span>Education</span></h2>
                 <div class="line"></div>
             </div>
 
-            <div class="timeline">
-                <div class="timeline-item glass-card">
-                    <div class="timeline-header">
-                        <h3>James Cook University, Singapore</h3>
-                        <span class="date">Expected Sept 2026</span>
+            <div class="timeline reveal-group">
+                <div class="timeline-item glass-card edu-feature reveal">
+                    <div class="edu-body">
+                        <div class="timeline-header">
+                            <h3>James Cook University, Singapore</h3>
+                            <span class="date">Graduated Oct 2026</span>
+                        </div>
+                        <h4 class="role">Bachelor of Cybersecurity</h4>
+                        <ul class="duties">
+                            <li><strong>Advanced Coursework:</strong> Network Forensics & Data Communications, Cloud & Data
+                                Centre Security, Cybersecurity Infrastructure Management, Data Mining, Behavioural
+                                Cybersecurity, Information Processing & Visualisation.</li>
+                            <li><strong>Core Foundation:</strong> Discrete Mathematics, Operating Systems & Shell Scripting,
+                                Web Design & Development.</li>
+                        </ul>
                     </div>
-                    <h4 class="role">Bachelor of Cybersecurity</h4>
-                    <ul class="duties">
-                        <li><strong>Advanced Coursework:</strong> Network Forensics & Data Communications, Cloud & Data
-                            Centre Security, Cybersecurity Infrastructure Management, Data Mining, Behavioural
-                            Cybersecurity, Information Processing & Visualisation.</li>
-                        <li><strong>Core Foundation:</strong> Discrete Mathematics, Operating Systems & Shell Scripting,
-                            Web Design & Development.</li>
-                    </ul>
+                    <figure class="edu-photo">
+                        <img src="images/graduation.jpg" alt="Mayur Ramesh on stage at the James Cook University Singapore graduation ceremony" loading="lazy">
+                        <figcaption><i class="fa-solid fa-graduation-cap"></i> Graduation · Oct 2026</figcaption>
+                    </figure>
                 </div>
 
-                <div class="timeline-item glass-card">
+                <div class="timeline-item glass-card reveal">
                     <div class="timeline-header">
                         <h3>Witty International School</h3>
                         <span class="date">2022 - 2024</span>
@@ -130,18 +187,18 @@
         </section>
 
         <!-- Professional & Research Experience -->
-        <section id="experience" class="section fade-in">
-            <div class="section-header">
+        <section id="experience" class="section">
+            <div class="section-header reveal">
                 <h2 class="section-title">02. <span>Experience</span></h2>
                 <div class="line"></div>
             </div>
 
-            <h3 class="subsection-title"><i class="fa-solid fa-microscope text-purple"></i> Research Experience</h3>
-            <div class="timeline">
-                <div class="timeline-item glass-card highlight-border">
+            <h3 class="subsection-title reveal"><i class="fa-solid fa-microscope text-purple"></i> Research Experience</h3>
+            <div class="timeline reveal-group">
+                <div class="timeline-item glass-card highlight-border reveal">
                     <div class="timeline-header">
                         <h3>Undergraduate Research Assistant (IoT Security)</h3>
-                        <span class="date">Sept 2025 – Present</span>
+                        <span class="date">Sept 2025 - Present</span>
                     </div>
                     <h4 class="role">James Cook University</h4>
                     <ul class="duties">
@@ -149,19 +206,19 @@
                             device commissioning methods (SoftAP, BLE, QR) across diverse consumer IoT vendors to
                             evaluate cryptographic standards and session key management.</li>
                         <li><strong>Vulnerability & Compliance Mapping:</strong> Analyzed technical specifications to
-                            identify architectural weaknesses—such as predictable SSIDs, unencrypted hotspots, and
-                            legacy encryption (e.g., 3DES)—against standardized security frameworks.</li>
+                            identify architectural weaknesses, such as predictable SSIDs, unencrypted hotspots, and
+                            legacy encryption (e.g., 3DES), against standardized security frameworks.</li>
                     </ul>
                 </div>
             </div>
 
-            <h3 class="subsection-title mt-4"><i class="fa-solid fa-briefcase text-cyan"></i> Professional Experience
+            <h3 class="subsection-title mt-4 reveal"><i class="fa-solid fa-briefcase text-cyan"></i> Professional Experience
             </h3>
-            <div class="timeline">
-                <div class="timeline-item glass-card">
+            <div class="timeline reveal-group">
+                <div class="timeline-item glass-card reveal">
                     <div class="timeline-header">
                         <h3>Student Marketer</h3>
-                        <span class="date">Jan 2025 – Present</span>
+                        <span class="date">Jan 2025 - Present</span>
                     </div>
                     <h4 class="role">James Cook University, Singapore</h4>
                     <ul class="duties">
@@ -172,7 +229,7 @@
                     </ul>
                 </div>
 
-                <div class="timeline-item glass-card">
+                <div class="timeline-item glass-card reveal">
                     <div class="timeline-header">
                         <h3>Orientation Team Leader</h3>
                         <span class="date">Oct 2024</span>
@@ -184,10 +241,10 @@
                     </ul>
                 </div>
 
-                <div class="timeline-item glass-card">
+                <div class="timeline-item glass-card reveal">
                     <div class="timeline-header">
                         <h3>Intern</h3>
-                        <span class="date">Mar 2022 – Jun 2022</span>
+                        <span class="date">Mar 2022 - Jun 2022</span>
                     </div>
                     <h4 class="role">Cheshire Homes India, Mumbai</h4>
                     <ul class="duties">
@@ -198,10 +255,10 @@
                     </ul>
                 </div>
 
-                <div class="timeline-item glass-card">
+                <div class="timeline-item glass-card reveal">
                     <div class="timeline-header">
                         <h3>President & Co-founder</h3>
-                        <span class="date">Sept 2022 – Dec 2023</span>
+                        <span class="date">Sept 2022 - Dec 2023</span>
                     </div>
                     <h4 class="role">Film Society, Mumbai</h4>
                     <ul class="duties">
@@ -213,26 +270,32 @@
         </section>
 
         <!-- Technical Projects -->
-        <section id="projects" class="section fade-in">
-            <div class="section-header">
+        <section id="projects" class="section">
+            <div class="section-header reveal">
                 <h2 class="section-title">03. <span>Technical Projects</span></h2>
                 <div class="line"></div>
             </div>
 
-            <div class="projects-grid">
+            <div class="projects-grid reveal-group">
                 <!-- Project 1 -->
-                <div class="project-card glass-card">
+                <article class="project-card glass-card tilt reveal">
+                    <div class="project-cover cover-cyan">
+                        <!-- Telemetry speed trace -->
+                        <svg viewBox="0 0 400 160" preserveAspectRatio="none" aria-hidden="true">
+                            <g class="cover-grid"><line x1="0" y1="40" x2="400" y2="40"/><line x1="0" y1="80" x2="400" y2="80"/><line x1="0" y1="120" x2="400" y2="120"/></g>
+                            <path class="draw draw-cyan" d="M0 120 L40 118 L60 60 L110 40 L140 42 L160 110 L190 112 L215 50 L270 30 L295 34 L310 100 L340 104 L360 55 L400 45"/>
+                            <path class="draw draw-purple delay" d="M0 124 L40 122 L62 70 L110 48 L138 50 L158 104 L190 108 L218 58 L270 38 L292 42 L312 96 L340 100 L362 62 L400 52"/>
+                        </svg>
+                    </div>
                     <div class="project-content">
                         <div class="project-top">
-                            <i class="fa-solid fa-folder-open text-cyan project-icon"></i>
+                            <h3 class="project-title">PurpleSector.py <span class="project-sub">F1 Data Analytics</span></h3>
                             <div class="project-links">
-                                <a href="https://www.instagram.com/purplesector.py/" target="_blank" aria-label="External Link"><i
+                                <a href="https://www.instagram.com/purplesector.py/" target="_blank" rel="noopener" aria-label="PurpleSector.py on Instagram"><i
                                         class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
                         </div>
-                        <h3 class="project-title">PurpleSector.py (F1 Data Analytics)</h3>
-                        <h4 class="project-role">Founder & Lead Developer <span class="date-inline">Dec 2025 –
-                                Present</span></h4>
+                        <h4 class="project-role">Founder & Lead Developer <span class="date-inline">Dec 2025 - Present</span></h4>
                         <div class="project-desc">
                             <p><strong>Mission:</strong> Founded a data analytics initiative to bridge the gap between
                                 complex raw telemetry and accessible sports insights through code-driven visual
@@ -241,7 +304,7 @@
                                 automate the extraction and cleaning of large-scale telemetry data, enabling rapid
                                 analysis immediately after race sessions.</p>
                             <p><strong>Advanced Visual Analytics:</strong> Designed custom plotting algorithms to decode
-                                complex race narratives, such as tire degradation and sector deltas—often missed by
+                                complex race narratives, such as tire degradation and sector deltas, often missed by
                                 traditional broadcast metrics.</p>
                         </div>
                         <ul class="project-tech">
@@ -253,24 +316,36 @@
                             <li>Seaborn</li>
                         </ul>
                     </div>
-                </div>
+                </article>
 
                 <!-- Project 2 -->
-                <div class="project-card glass-card">
+                <article class="project-card glass-card tilt reveal">
+                    <div class="project-cover cover-purple">
+                        <!-- Rising bar chart -->
+                        <svg viewBox="0 0 400 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                            <g class="cover-grid"><line x1="0" y1="140" x2="400" y2="140"/></g>
+                            <g class="bars">
+                                <rect x="70" y="100" width="34" height="40" rx="3"/>
+                                <rect x="120" y="80" width="34" height="60" rx="3"/>
+                                <rect x="170" y="62" width="34" height="78" rx="3"/>
+                                <rect x="220" y="44" width="34" height="96" rx="3"/>
+                                <rect x="270" y="24" width="34" height="116" rx="3" class="bar-hi"/>
+                            </g>
+                            <path class="draw draw-cyan delay" d="M87 92 L137 72 L187 54 L237 36 L287 16"/>
+                        </svg>
+                        <span class="award-badge"><i class="fa-solid fa-trophy"></i> Best Design Presentation, TR2 2025 Design Sprint</span>
+                    </div>
                     <div class="project-content">
                         <div class="project-top">
-                            <i class="fa-solid fa-folder-open text-purple project-icon"></i>
+                            <h3 class="project-title">Economic Security Platform</h3>
                             <div class="project-links">
-                                <span class="award-badge"><i class="fa-solid fa-trophy"></i> Best Design Presentation</span>
-                                <a href="https://safe-spoof-08541726.figma.site/" target="_blank" aria-label="External Link"><i
+                                <a href="https://safe-spoof-08541726.figma.site/" target="_blank" rel="noopener" aria-label="Figma prototype"><i
                                         class="fa-solid fa-arrow-up-right-from-square"></i></a>
                             </div>
                         </div>
-                        <h3 class="project-title">Economic Security Platform</h3>
-                        <h4 class="project-role">Product Lead & UI Designer <span class="date-inline">Nov 2025</span>
-                        </h4>
+                        <h4 class="project-role">Product Lead & UI Designer <span class="date-inline">Sep 2025</span></h4>
                         <div class="project-desc">
-                            <p><strong>Award:</strong> Winner, "Best Design Presentation" (48-Hour Intensive Sprint).
+                            <p><strong>Award:</strong> Winner, "Best Design Presentation" at the James Cook University Singapore Design Sprint (TR2 2025).
                             </p>
                             <p><strong>Project:</strong> Conceptualized and prototyped "Survey-to-Success," a platform
                                 addressing economic security across generations.</p>
@@ -287,21 +362,33 @@
                             <li>Strategic Design</li>
                         </ul>
                     </div>
-                </div>
+                </article>
 
                 <!-- Project 3 -->
-                <div class="project-card glass-card highlight-border-cyan">
+                <article class="project-card glass-card tilt highlight-border-cyan reveal">
+                    <div class="project-cover cover-cyan">
+                        <!-- Route across a city grid -->
+                        <svg viewBox="0 0 400 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                            <g class="cover-grid">
+                                <line x1="0" y1="30" x2="400" y2="30"/><line x1="0" y1="80" x2="400" y2="80"/><line x1="0" y1="130" x2="400" y2="130"/>
+                                <line x1="60" y1="0" x2="60" y2="160"/><line x1="140" y1="0" x2="140" y2="160"/><line x1="220" y1="0" x2="220" y2="160"/><line x1="300" y1="0" x2="300" y2="160"/><line x1="360" y1="0" x2="360" y2="160"/>
+                            </g>
+                            <path class="draw draw-cyan" d="M60 130 L60 80 L140 80 L140 30 L220 30 L220 80 L300 80 L300 30 L360 30"/>
+                            <circle cx="60" cy="130" r="5" class="node"/>
+                            <circle cx="360" cy="30" r="7" class="node node-end"/>
+                            <circle cx="180" cy="130" r="18" class="heat"/>
+                            <circle cx="260" cy="130" r="12" class="heat"/>
+                        </svg>
+                        <span class="award-badge"><i class="fa-solid fa-trophy"></i> 1st Place, TR1 2026 AI Hackathon</span>
+                    </div>
                     <div class="project-content">
                         <div class="project-top">
-                            <i class="fa-solid fa-folder-open text-cyan project-icon"></i>
+                            <h3 class="project-title">NeuroNav</h3>
                             <div class="project-links">
-                                <span class="award-badge"><i class="fa-solid fa-trophy"></i> 1st Place — TR1 2026 AI Hackathon</span>
+                                <a href="https://github.com/mayur-ramesh/NeuroNav" target="_blank" rel="noopener" aria-label="NeuroNav on GitHub"><i class="fa-brands fa-github"></i></a>
                             </div>
                         </div>
-                        <h3 class="project-title">NeuroNav</h3>
-                        <h4 class="project-role">Project Lead & Lead Developer <span class="date-inline">Mar 2026</span>
-                            <a href="https://github.com/mayur-ramesh/NeuroNav" target="_blank" class="project-role-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                        </h4>
+                        <h4 class="project-role">Project Lead & Lead Developer <span class="date-inline">Mar 2026</span></h4>
                         <div class="project-desc">
                             <p><strong>Project:</strong> Spearheaded development of a real-time, AI-powered routing engine that calculates accessible urban paths by minimizing a dynamic "Sensory Cost Function".</p>
                             <p><strong>Technical Implementation:</strong> Engineered the backend using Python and FastAPI, integrating live crowd and traffic data from the OneMap API and LTA DataMall.</p>
@@ -316,22 +403,79 @@
                             <li>LTA DataMall</li>
                         </ul>
                     </div>
-                </div>
+                </article>
 
-                <!-- Project 4 -->
-                <div class="project-card glass-card">
+                <!-- Project 5 -->
+                <article class="project-card glass-card tilt reveal">
+                    <div class="project-cover cover-purple">
+                        <!-- Work week: tasks lighting up as AI-augmented -->
+                        <svg viewBox="0 0 400 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                            <g class="cover-grid"><line x1="0" y1="128" x2="400" y2="128"/></g>
+                            <g class="week">
+                                <rect x="82" y="108" width="40" height="16" rx="3"/><rect x="82" y="88" width="40" height="16" rx="3" class="ai"/><rect x="82" y="68" width="40" height="16" rx="3"/>
+                                <rect x="134" y="108" width="40" height="16" rx="3" class="ai"/><rect x="134" y="88" width="40" height="16" rx="3"/><rect x="134" y="68" width="40" height="16" rx="3"/><rect x="134" y="48" width="40" height="16" rx="3" class="ai"/>
+                                <rect x="186" y="108" width="40" height="16" rx="3"/><rect x="186" y="88" width="40" height="16" rx="3" class="ai"/>
+                                <rect x="238" y="108" width="40" height="16" rx="3"/><rect x="238" y="88" width="40" height="16" rx="3"/><rect x="238" y="68" width="40" height="16" rx="3" class="ai"/>
+                                <rect x="290" y="108" width="40" height="16" rx="3" class="ai"/><rect x="290" y="88" width="40" height="16" rx="3"/>
+                            </g>
+                            <g class="week-days">
+                                <text x="102" y="142">M</text><text x="154" y="142">T</text><text x="206" y="142">W</text><text x="258" y="142">T</text><text x="310" y="142">F</text>
+                            </g>
+                        </svg>
+                        <span class="award-badge"><i class="fa-solid fa-trophy"></i> Best Design Presentation, TR1S 2026 Design Sprint</span>
+                    </div>
                     <div class="project-content">
                         <div class="project-top">
-                            <i class="fa-solid fa-folder-open text-purple project-icon"></i>
-                            <div class="project-links"></div>
+                            <h3 class="project-title">Dragon AI <span class="project-sub">AI Career Clarity</span></h3>
+                            <div class="project-links">
+                                <a href="https://dragon-aicareerclarity.netlify.app/" target="_blank" rel="noopener" aria-label="Dragon AI live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
                         </div>
-                        <h3 class="project-title">IRIS AI</h3>
-                        <h4 class="project-role">Product Owner & Scrum Master <span class="date-inline">Jan 2026 – Present</span>
-                            <a href="https://huggingface.co/spaces/Brajmovech/IRIS-AI_DEMO" target="_blank" class="project-role-link" aria-label="Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </h4>
+                        <h4 class="project-role">Product Lead, Development Lead & Presenter <span class="date-inline">Apr 2026</span></h4>
+                        <div class="project-desc">
+                            <p><strong>Award:</strong> Winner, "Best Design Presentation" at the James Cook University Singapore Design Sprint (TR1S 2026).</p>
+                            <p><strong>Project:</strong> Led team Dragon in building AI Career Clarity, a tool that maps your real work week by role and industry, shows which tasks AI will reshape, and suggests your three smartest next moves. The message: "Augment, Don't Automate".</p>
+                            <p><strong>Rapid Build:</strong> Took the product from Figma prototypes to a working, coded demo website in under two days.</p>
+                            <p><strong>Pitch:</strong> Presented to the judging panel, turning the fear that AI will take our jobs into a clear story about how AI can help people do their jobs better.</p>
+                        </div>
+                        <ul class="project-tech">
+                            <li>Figma</li>
+                            <li>React</li>
+                            <li>Vite</li>
+                            <li>Framer Motion</li>
+                            <li>Product Strategy</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card glass-card tilt reveal">
+                    <div class="project-cover cover-purple">
+                        <!-- Candlesticks + prediction line -->
+                        <svg viewBox="0 0 400 160" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                            <g class="cover-grid"><line x1="0" y1="40" x2="400" y2="40"/><line x1="0" y1="80" x2="400" y2="80"/><line x1="0" y1="120" x2="400" y2="120"/></g>
+                            <g class="candles">
+                                <line x1="60" y1="70" x2="60" y2="125"/><rect x="53" y="85" width="14" height="30"/>
+                                <line x1="95" y1="80" x2="95" y2="130"/><rect x="88" y="95" width="14" height="25" class="down"/>
+                                <line x1="130" y1="60" x2="130" y2="115"/><rect x="123" y="70" width="14" height="35"/>
+                                <line x1="165" y1="50" x2="165" y2="100"/><rect x="158" y="58" width="14" height="30"/>
+                                <line x1="200" y1="55" x2="200" y2="110"/><rect x="193" y="68" width="14" height="28" class="down"/>
+                                <line x1="235" y1="35" x2="235" y2="90"/><rect x="228" y="45" width="14" height="35"/>
+                            </g>
+                            <path class="draw draw-cyan dashed delay" d="M235 60 L270 48 L305 40 L340 26"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-top">
+                            <h3 class="project-title">IRIS AI</h3>
+                            <div class="project-links">
+                                <a href="https://huggingface.co/spaces/Brajmovech/IRIS-AI_DEMO" target="_blank" rel="noopener" aria-label="IRIS AI live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <h4 class="project-role">Product Owner & Scrum Master <span class="date-inline">Jan 2026 - Present</span></h4>
                         <div class="project-desc">
                             <p><strong>Project Leadership:</strong> Directed a cross-functional team of 5 to develop an AI-powered stock market analysis and prediction tool.</p>
-                            <p><strong>Agile Management:</strong> Dual-hatted as Product Owner and Scrum Master — managing the backlog, defining user stories, and facilitating sprints for timely delivery.</p>
+                            <p><strong>Agile Management:</strong> Dual-hatted as Product Owner and Scrum Master, managing the backlog, defining user stories, and facilitating sprints for timely delivery.</p>
                             <p><strong>Stakeholder Alignment:</strong> Bridged technical development with academic requirements, ensuring the final predictive model and dashboard met all evaluation criteria.</p>
                         </div>
                         <ul class="project-tech">
@@ -341,20 +485,20 @@
                             <li>Data Analytics</li>
                         </ul>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
 
         <!-- Skills & Certifications -->
-        <section id="skills" class="section fade-in">
-            <div class="section-header">
+        <section id="skills" class="section">
+            <div class="section-header reveal">
                 <h2 class="section-title">04. <span>Skills & Certs</span></h2>
                 <div class="line"></div>
             </div>
 
-            <div class="skills-cert-container">
-                <div class="skills-panel glass-card">
-                    <h3>Technical Arsenal</h3>
+            <div class="skills-cert-container reveal-group">
+                <div class="skills-panel glass-card reveal">
+                    <h3><i class="fa-solid fa-terminal text-cyan"></i> Technical Arsenal</h3>
 
                     <div class="skill-category">
                         <h4>Languages</h4>
@@ -410,8 +554,8 @@
                     </div>
                 </div>
 
-                <div class="certs-panel glass-card">
-                    <h3>Certifications</h3>
+                <div class="certs-panel glass-card reveal">
+                    <h3><i class="fa-solid fa-award text-purple"></i> Certifications</h3>
                     <ul class="cert-list">
                         <li>
                             <div class="cert-item">
@@ -466,43 +610,47 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section fade-in align-center">
-            <h2 class="section-title center">05. <span>What's Next?</span></h2>
-            <h3 class="contact-heading">Get In Touch</h3>
-            <p class="contact-text">
+        <section id="contact" class="section align-center">
+            <h2 class="section-title center reveal">05. <span>What's Next?</span></h2>
+            <h3 class="contact-heading reveal">Get In Touch</h3>
+            <p class="contact-text reveal">
                 I'm currently open to opportunities in cybersecurity, data analytics, and tech leadership.
-                Feel free to reach out — whether it's about a potential opportunity, a project, or just
+                Feel free to reach out, whether it's about a potential opportunity, a project, or just
                 to connect. I'd love to hear from you.
             </p>
 
-            <div class="contact-methods">
-                <a href="mailto:mayuramesh2006@gmail.com" class="contact-chip glass-card">
+            <div class="contact-methods reveal-group">
+                <a href="mailto:mayuramesh2006@gmail.com" class="contact-chip glass-card reveal">
                     <i class="fa-solid fa-envelope"></i> mayuramesh2006@gmail.com
                 </a>
-                <a href="tel:+6590854461" class="contact-chip glass-card">
+                <a href="tel:+6590854461" class="contact-chip glass-card reveal">
                     <i class="fa-solid fa-phone"></i> +65 9085 4461
                 </a>
-                <div class="contact-chip glass-card">
+                <div class="contact-chip glass-card reveal">
                     <i class="fa-solid fa-location-dot"></i> Singapore
                 </div>
-                <a href="https://www.linkedin.com/in/mayur-ramesh/" target="_blank"
-                    class="contact-chip glass-card neon-border">
+                <a href="https://www.linkedin.com/in/mayur-ramesh/" target="_blank" rel="noopener"
+                    class="contact-chip glass-card neon-border reveal">
                     <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
                 </a>
             </div>
 
-            <a href="mailto:mayuramesh2006@gmail.com" class="btn-primary mt-4 btn-large">Say Hello</a>
+            <a href="mailto:mayuramesh2006@gmail.com" class="btn-primary mt-4 btn-large btn-pulse reveal">Say Hello <i class="fa-regular fa-paper-plane"></i></a>
         </section>
     </main>
 
     <footer>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/mayur-ramesh/" target="_blank" aria-label="LinkedIn"><i
+            <a href="https://www.linkedin.com/in/mayur-ramesh/" target="_blank" rel="noopener" aria-label="LinkedIn"><i
                     class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/mayur-ramesh" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/purplesector.py/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             <a href="mailto:mayuramesh2006@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
         </div>
-        <p>Designed & Built by Mayur Ramesh</p>
+        <p>Designed & Built by Mayur Ramesh · <span class="year">2026</span></p>
     </footer>
+
+    <a href="#home" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
 
     <script src="js/main.js"></script>
 </body>
